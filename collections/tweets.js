@@ -1,1 +1,2 @@
-Tweets = new Mongo.Collection("tweets"); 
+Tweets = new Mongo.Collection("tweets");
+TweetCount = new Mongo.Collection("tweetcount");

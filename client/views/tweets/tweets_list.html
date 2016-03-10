@@ -1,7 +1,19 @@
 <template name="tweetsList">
 	<div class='ui items'>
-		{{#each tweets}}
-			{{> tweetsItem}}
-		{{/each}}
+    {{#if tweets}}
+    <div class='ui stackable grid'>
+      <div class='ui row'>
+      {{#each tweets}}
+        <div class='ui three wide column'>
+        {{> tweetsItem}}
+        </div>
+      {{/each}}
+      </div>
+    </div>
+    {{else}}
+      <h1 class='ui center aligned header'>
+        Please provide a Search term
+      </h1>
+    {{/if}}
 	</div>
 </template>
