@@ -1,0 +1,20 @@
+<template name='maps'>
+   <div id='floating-panel'>
+      <h2 class='ui center aligned inverted header'>
+        Twitter HeatMap
+        <div class='sub header'>
+          See where \\someone is Tweeting from
+        </div>
+      </h2>
+      <div style='left: 43%' id='search-input' class="ui left icon input screen-name">
+        <input id='search-input-box' type="text" placeholder="Twitter handle without @">
+        <i class="search icon"></i>
+      </div>
+     <button class='ui instagram icon button instagram-login'>
+       <i class='instagram icon'></i>
+     </button>
+    </div>
+    <div id='map_canvas' class="map-container">
+        {{> googleMap name="exampleMap" options=exampleMapOptions}}
+    </div>
+</template>
