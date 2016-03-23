@@ -1,7 +1,6 @@
 # README #
 
-### What is this repository for? ###
+### Tweetstream ###
 
-You can follow this guide build your own Twitter Monitoring Apps step-by-step, from setup to a complete apps.
-
-Full Tutorial: [Building Twitter Streaming Apps with MeteorJS](http://blog.sensq.com/post/136261758125/building-twitter-streaming-apps-with-meteorjs)
+A Meteor.js app that I made to use Twitter and Instagram JavaScript APIs to visualize posts on a Google Maps instance.
+It also allows one to search for a Twitter user and (if available) create a heatmap for their last 200 tweets. 
