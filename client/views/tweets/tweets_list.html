@@ -2,13 +2,17 @@
 	<div class='ui items'>
     {{#if tweets}}
     <div class='ui stackable grid'>
-      <div class='ui row'>
+
       {{#each tweets}}
-        <div class='ui three wide column'>
+			<div class='ui row'>
+
+					<div class='ui basic segment'>
         {{> tweetsItem}}
-        </div>
+			</div>
+      
+			</div>
       {{/each}}
-      </div>
+
     </div>
     {{else}}
       <h1 class='ui center aligned header'>

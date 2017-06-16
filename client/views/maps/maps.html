@@ -1,20 +1,36 @@
 <template name='maps'>
-   <div id='floating-panel'>
-      <h2 class='ui center aligned inverted header'>
-        Twitter HeatMap
-        <div class='sub header'>
-          See where \\someone is Tweeting from
-        </div>
-      </h2>
-      <div style='left: 43%' id='search-input' class="ui left icon input screen-name">
-        <input id='search-input-box' type="text" placeholder="Twitter handle without @">
-        <i class="search icon"></i>
+  <div class='ui stackable grid'>
+    <div class='ui row'>
+      <div class='ui ten wide column'>
+         <div id='floating-panel'>
+           <p></p>
+            <h2 class='ui center aligned inverted header'>
+              TweetStream
+              <div class='sub header'>
+                Search Tweets
+              </div>
+            </h2>
+            <div style='left:38%' id='search-input' class="ui center aligned left icon input screen-name">
+              <input id='search-input-box' type="text" placeholder="Search">
+              <i class="search icon"></i>
+            </div>
+
+          </div>
+          <div id='map_canvas' class="map-container">
+              {{> googleMap name="exampleMap" options=exampleMapOptions}}
+          </div>
       </div>
-     <button class='ui instagram icon button instagram-login'>
-       <i class='instagram icon'></i>
-     </button>
+      <div class='ui six wide column' style='height: 700px; overflow-y: scroll'>
+        <div class='ui inverted segment'>
+          <div class='ui icon header'>
+            Tweets
+            <i class='ui twitter icon'></i>
+            {{> tweetsList}}
+          </div>
+        </div>
+      </div>
     </div>
-    <div id='map_canvas' class="map-container">
-        {{> googleMap name="exampleMap" options=exampleMapOptions}}
-    </div>
+  </div>
+
+
 </template>

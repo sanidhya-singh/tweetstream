@@ -1,4 +1,22 @@
 Meteor.methods({
+  'emptyTweetsCollection': function() {
+    Tweets.remove({});
+  },
+  'insertTweet': function(tweet) {
+    //console.log('insertTweet called');
+    var leTweet = {
+      'text': tweet.text,
+      'user': tweet.user.screen_name,
+      'date': tweet.created_at,
+      'picture': tweet.user.profile_image_url
+    }
+    Tweets.insert(leTweet, function(error) {
+      if(error) {
+        console.log(error);
+        return null;
+      }
+    });
+  },
   'fetchTweets': function(lat, lng) {
     Future = Npm.require('fibers/future');
     var myFuture = new Future();
@@ -18,7 +36,7 @@ Meteor.methods({
   'getUserTweets': function(screenName) {
     Future = Npm.require('fibers/future');
     var myFuture = new Future();
-    T.get('statuses/user_timeline', {screen_name: screenName, count: 200}, function(err, data, response) {
+    T.get('search/tweets', {q: encodeURI(screenName), count: 200}, function(err, data, response) {
       myFuture.return(data);
     })
     return myFuture.wait();
@@ -59,4 +77,3 @@ InstagramFetcher.fetchImages.fromTag(options, function ( images, pagination ) {
     // The pagination object contains id's used for pagination. See below!
     //console.log( pagination );
 });*/
-

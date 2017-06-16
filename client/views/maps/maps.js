@@ -15,15 +15,18 @@ Template.maps.events({
        liveTweets.clear();
        console.log(result);
        $('#search-input').toggleClass('loading');
-       for(i=0; i<result.length; i++) {
-         if(result[i].coordinates && result[i].coordinates !== null) {
-           resultsCheck = true;
-           var tweetLocation = new google.maps.LatLng(result[i].coordinates.coordinates[1], result[i].coordinates.coordinates[0]);
-           liveTweets.push(tweetLocation);
+       //console.log(result.statuses.length);
+       if(result.statuses.length > 0) {
+         resultsCheck = true;
+         Meteor.call('emptyTweetsCollection');
+         for(i=0; i<result.statuses.length; i++) {
+             //var tweetLocation = new google.maps.LatLng(result[i].coordinates.coordinates[1], result[i].coordinates.coordinates[0]);
+             //liveTweets.push(tweetLocation);
+             Meteor.call('insertTweet', result.statuses[i]);
          }
-       }
+      }
        if(resultsCheck !== true) {
-        alert('Looks like this user has turned off Tweet Geo-tagging');
+        alert('No tweets found');
        }
      });
   },
@@ -94,10 +97,9 @@ Template.maps.onCreated(function() {
               position: {lat:28.6139, lng: 77.2090},
               map: globalMap,
               draggable: true,
-              icon:  {
-                    url: "\images\favicon.png",
-                    scaledSize: new google.maps.Size(72, 72) // pixels
-              }
+              icon: "/images/favicon.png"
+                     // pixels
+
             });
             google.maps.event.addListener(marker, 'dragend', function(event){
                console.log(event.latLng.lat());

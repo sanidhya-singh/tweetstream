@@ -6,10 +6,14 @@
 }
 
 #floating-panel {
-  height: 1px;
+  height: 0px;
   width: 100%;
   position: absolute;
   left: 0px;
   top: 0x;
   z-index: 99;
+}
+
+body {
+  background: #1b1c1d;
 }
