@@ -2,5 +2,9 @@
     "InstagramAPI": {
         "CLIENT_ID": "12037b845949477bba925da2a5ba74c2",
         "CLIENT_SECRET": "949bf2ca887c4eaba9b3ad4989dba42e"
+    },
+    "facebookAPI":{
+        "username": "provide username",
+        "password" : "hash_encode password"
     }
 }
